@@ -13,8 +13,8 @@ const Note = () => {
       <h1> My Notes </h1>
       <ul>
         {data.map((note) => (
-          <li key={data.div}>
-            {note.Firstname},{note.Lastname},{note.Phone},{note.role},
+          <li key={note.id}>
+            {note.firstname},{note.lastname},{note.phone},{note.role},
             {note.message}
           </li>
         ))}{" "}

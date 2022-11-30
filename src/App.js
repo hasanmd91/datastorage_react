@@ -4,6 +4,7 @@ import Form from "./component/Form";
 import View from "./component/View";
 import Overlay from "./component/Overlay";
 import Note from "./component/Note";
+import axios from "axios";
 
 const Gap = () => {
   const [overlay, setOverlay] = useState(false);
@@ -18,6 +19,7 @@ const Gap = () => {
   const onsubmit = (e) => {
     e.preventDefault();
     setOverlay(true);
+
     e.target.reset();
   };
 
@@ -30,15 +32,9 @@ const Gap = () => {
   };
 
   const sentMessage = () => {
-    setNotes({
-      firstname: "",
-      lastname: "",
-      phonenumber: "",
-      message: " ",
-      role: "",
-    });
-
     setOverlay(false);
+
+    axios.post("http://localhost:3001/notes", { ...notes });
   };
 
   return (
@@ -55,7 +51,7 @@ const Gap = () => {
           />
         )}
       </div>{" "}
-      <Note />
+      <Note {...notes} />
     </div>
   );
 };
