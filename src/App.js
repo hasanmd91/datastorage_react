@@ -6,6 +6,8 @@ import Overlay from "./component/Overlay";
 import Note from "./component/Note";
 import axios from "axios";
 
+const url = "http://localhost:3001/notes";
+
 const Gap = () => {
   const [overlay, setOverlay] = useState(false);
   const [notes, setNotes] = useState({
@@ -34,7 +36,14 @@ const Gap = () => {
   const sentMessage = () => {
     setOverlay(false);
 
-    axios.post("http://localhost:3001/notes", { ...notes });
+    axios
+      .post(url, { ...notes })
+      .then((res) => console.log(res))
+      .then((error) => console.log(error));
+  };
+
+  const removeData = (id) => {
+    axios.delete(`${url}/${id}`);
   };
 
   return (
@@ -51,7 +60,7 @@ const Gap = () => {
           />
         )}
       </div>{" "}
-      <Note {...notes} />
+      <Note removeData={removeData.bind(this)} />
     </div>
   );
 };

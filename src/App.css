@@ -122,3 +122,20 @@ select {
   overflow-x: scroll;
   list-style-type: none;
 }
+
+.Note button {
+  width: 60px;
+  padding: 7px;
+  border: none;
+  border-radius: 2px;
+  background-color: yellowgreen;
+  cursor: pointer;
+}
+.Note button:hover {
+  background-color: yellow;
+}
+
+.Note ul li {
+  display: flex;
+  justify-content: space-between;
+}

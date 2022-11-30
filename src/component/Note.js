@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const Note = () => {
+const Note = ({ removeData }) => {
   const [data, setdata] = useState([]);
 
   useEffect(() => {
@@ -12,10 +12,14 @@ const Note = () => {
     <div className="Note">
       <h1> My Notes </h1>
       <ul>
-        {data.map((note) => (
+        {data.map((note, id) => (
           <li key={note.id}>
-            {note.firstname},{note.lastname},{note.phone},{note.role},
-            {note.message}
+            <p>
+              {" "}
+              {note.firstname},{note.lastname},{note.phone},{note.role},
+              {note.message}
+            </p>
+            <button onClick={() => removeData(note.id)}> Delete</button>
           </li>
         ))}{" "}
       </ul>
