@@ -1,9 +1,9 @@
 import React from "react";
 
-const form = (props) => {
+const form = ({ onsubmit, inputhandeler }) => {
   return (
     <div className="form">
-      <form onSubmit={props.onsubmit}>
+      <form onSubmit={onsubmit} onChange={inputhandeler}>
         <div className="formfield">
           <label name="firstname">Firstname</label>
           <input
@@ -11,18 +11,11 @@ const form = (props) => {
             name="firstname"
             type="text"
             required="require"
-            onChange={props.inputhandeler}
           />
         </div>
         <div className="formfield">
           <label name="lastname"> Lastname:</label>
-          <input
-            id="lastname"
-            name="lastname"
-            type="text"
-            required="require"
-            onChange={props.inputhandeler}
-          />
+          <input id="lastname" name="lastname" type="text" required="require" />
         </div>
         <div className="formfield">
           <label name="phonenumber"> Phone number:</label>
@@ -31,27 +24,15 @@ const form = (props) => {
             name="phonenumber"
             type="number"
             required="require"
-            onChange={props.inputhandeler}
           />
         </div>
         <div className="formfield">
           <label name="message"> Message:</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="5"
-            onChange={props.inputhandeler}
-          />
+          <textarea id="message" name="message" rows="5" />
         </div>
         <div className="formfield">
           <label name="role"> Role:</label>
-          <select
-            id="role"
-            name="role"
-            type="select"
-            required="require"
-            onChange={props.inputhandeler}
-          >
+          <select id="role" name="role" type="select" required="require">
             {" "}
             <option name="teacher"> Teacher </option>
             <option name="student"> Student</option>

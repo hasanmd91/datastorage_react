@@ -1,65 +1,63 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Form from "./component/Form";
 import View from "./component/View";
 import Overlay from "./component/Overlay";
-import form from "./component/Form";
+import Note from "./component/Note";
 
-export default class App extends Component {
-  state = {
-    note: {
+const Gap = () => {
+  const [overlay, setOverlay] = useState(false);
+  const [notes, setNotes] = useState({
+    firstname: "",
+    lastname: "",
+    phonenumber: "",
+    message: " ",
+    role: "",
+  });
+
+  const onsubmit = (e) => {
+    e.preventDefault();
+    setOverlay(true);
+    e.target.reset();
+  };
+
+  const inputhandeler = (event) => {
+    setNotes({ ...notes, [event.target.name]: event.target.value });
+  };
+
+  const remOverlay = () => {
+    setOverlay(false);
+  };
+
+  const sentMessage = () => {
+    setNotes({
       firstname: "",
       lastname: "",
       phonenumber: "",
       message: " ",
       role: "",
-    },
-
-    overlay: false,
-  };
-
-  sentMessage = () => {
-    this.setState({
-      note: {
-        firstname: "",
-        lastname: "",
-        phonenumber: "",
-        message: " ",
-        role: "",
-      },
-      overlay: false,
     });
+
+    setOverlay(false);
   };
 
-  remOverlay = (e) => {
-    this.setState({ overlay: !this.state.overlay });
-  };
-
-  onsubmit = (e) => {
-    e.preventDefault();
-    this.setState({ overlay: !this.state.overlay });
-    e.target.reset();
-  };
-
-  inputhandeler = (e) => {
-    this.setState({
-      note: { ...this.state.note, [e.target.name]: e.target.value },
-    });
-  };
-
-  render() {
-    return (
+  return (
+    <div className="container">
+      {" "}
       <div className="App">
-        <Form inputhandeler={this.inputhandeler} onsubmit={this.onsubmit} />
-        <View {...this.state.note} />
-        {this.state.overlay && (
+        <Form onsubmit={onsubmit} inputhandeler={inputhandeler} />
+        <View {...notes} />
+        {overlay && (
           <Overlay
-            {...this.state.note}
-            remOverlay={this.remOverlay}
-            sentMessage={this.sentMessage}
+            {...notes}
+            remOverlay={remOverlay}
+            sentMessage={sentMessage}
           />
         )}
-      </div>
-    );
-  }
-}
+      </div>{" "}
+      <Note />
+    </div>
+  );
+};
+
+export default Gap;

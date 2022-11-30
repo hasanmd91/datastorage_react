@@ -9,7 +9,7 @@
 }
 .App {
   display: flex;
-  height: 100vh;
+  height: 80vh;
   width: 100vw;
   background-color: var(--primary-color);
 }
@@ -98,4 +98,27 @@ select {
 
 .overlay button:hover {
   background-color: grey;
+}
+
+.container {
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+}
+
+.Note {
+  padding: 40px;
+  line-height: 30px;
+}
+
+.Note li {
+  background-color: var(--primary-color);
+  margin: 10px;
+  width: 70%;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+  overflow-x: scroll;
+  list-style-type: none;
 }
