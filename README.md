@@ -12,15 +12,14 @@
 
 ## Setup and usage
 
-Live page [here]()
+Live page [https://datastoragereact.netlify.app/]()
 
 ## Screenshot
 
 <img src="src\asset\React-App (1).png"/>
 <br/>
-<br/>
 <img src="src\asset\React-App.png"/>
 
 ## Sources
 
-- [https://github.com/hasanmd91/restapi_react]()
+- [https://github.com/hasanmd91/datastorage_react]()
