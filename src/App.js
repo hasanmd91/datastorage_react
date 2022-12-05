@@ -35,15 +35,19 @@ const Gap = () => {
 
   const sentMessage = () => {
     setOverlay(false);
+    console.log(notes);
 
     axios
       .post(url, { ...notes })
-      .then((res) => console.log(res))
+      .then(window.location.reload())
       .then((error) => console.log(error));
   };
 
   const removeData = (id) => {
-    axios.delete(`${url}/${id}`);
+    axios
+      .delete(`${url}/${id}`)
+      .then(window.location.reload())
+      .then((error) => console.log(error));
   };
 
   return (
