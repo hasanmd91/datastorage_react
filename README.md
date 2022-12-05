@@ -12,7 +12,7 @@
 
 ## Setup and usage
 
-Live page [https://datastoragereact.netlify.app]()
+Live page [here](https://datastoragereact.netlify.app)
 
 ## Screenshot
 
@@ -22,4 +22,4 @@ Live page [https://datastoragereact.netlify.app]()
 
 ## Sources
 
-- [https://github.com/hasanmd91/datastorage_react]()
+- [source code ](https://github.com/hasanmd91/datastorage_react)
