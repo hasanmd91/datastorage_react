@@ -12,7 +12,7 @@
 
 ## Setup and usage
 
-Live page [here](https://datastoragereact.netlify.app)
+Live page [Click here](https://datastoragereact.netlify.app)
 
 ## Screenshot
 
